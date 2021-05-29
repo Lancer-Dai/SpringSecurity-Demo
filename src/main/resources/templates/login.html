@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+
+
+</head>
+<body>
+
+<form method="post" th:action="@{/login}">
+     <div id="form">
+         <div class="int">
+             <label >账 号：</label>
+             <input type="text" name="username" class="input" />
+         </div>
+         <div class="int">
+             <label >密 码：</label>
+             <input type="password" name="password" class="input" />
+         </div>
+         <!--填写要求验证如下：-->
+         <div id="msg"></div>
+         <div id="msg2"></div>
+         <br>
+         <input type="checkbox" name="remember"> 记住我
+         <input type="submit" value="提交" >
+ </form>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+
+<div>
+
+    <!-- 注意，自定义的角色名称必须以“ROLE_”开头，比如本例子中，后台设置的就是ROLE_v1，但是这里只需要识别v1就行了，本例子中在java代码中加了 -->
+    <a sec:authorize="hasRole('v1')" href="/level1">level1</a>
+    <a sec:authorize="hasRole('v2')" href="/level2">level2</a>
+    <a sec:authorize="hasRole('v3')" href="/level3">level3</a>
+
+
+
+    <!-- 如果已登录，展示用户名和注销按钮 -->
+
+
+    <div sec:authorize="!isAuthenticated()">
+       未登录，请 <a  href="/myLogin">登录</a>
+
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        用户名：<span sec:authentication="name"></span>
+        角色：<span sec:authentication="principal.authorities"></span>
+        <a href="/logout">注销</a>
+    </div>
+
+</div>
+</body>
+</html>
